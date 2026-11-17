@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #222;
+}
+
+nav h2 {
+    color: #00ffcc;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+}
+
+nav a:hover {
+    color: #00ffcc;
+    transform: scale(1.2);
+}
+
+
+.hero {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFBfjk0KHogzQ3LM3VezxNS5rtDF8GphLTCI1ZKJ6fVJRJhJMW0nU2zsw&s=10);
+
+    background-size: 300% 300%;
+    animation: backgroundMove 8s infinite;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+}
+
+.cta {
+    padding: 12px 30px;
+    background: #00ffcc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.products {
+    padding: 50px 8%;
+    text-align: center;
+}
+
+.products h1 {
+    margin-bottom: 35px;
+    color: #00ffcc;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+
+    opacity: 0;
+    animation: slideIn 1s forwards;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.card:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.card:nth-child(6) {
+    animation-delay: 1.2s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ffcc;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    margin: 15px 0;
+    color: #00ffcc;
+}
+
+.card p {
+    margin-bottom: 15px;
+}
+
+.card h4 {
+    margin-bottom: 15px;
+}
+
+.card button {
+    padding: 10px 20px;
+    background: #00ffcc;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.card button:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #444;
+    border-top: 5px solid #00ffcc;
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#about {
+    text-align: center;
+    padding: 50px;
+    background: #222;
+}
+
+#about h2 {
+    color: #00ffcc;
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+}
+
+@media (max-width: 768px) {
+
+    .product-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+nav h2 {
+    transform: skew(-5deg);
+}
+
+.card img {
+    transform-origin: center;
+}
+
+.card img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.card:hover {
+    animation-play-state: paused;
+}
+
+.hero-content {
+    animation: appear 2s ease-in-out;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
